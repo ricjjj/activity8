@@ -1,0 +1,93 @@
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(const MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const MyHomePage(title: 'Simple Stock UI'),
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  final String title;
+
+  const MyHomePage({
+    super.key,
+    required this.title,
+  });
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title,
+            style: TextStyle(
+              color: Colors.white,
+            )),
+        backgroundColor: Colors.blue,
+      ),
+      body: Column(children: [
+        Row(children: [
+          Container(
+              margin: const EdgeInsets.only(top: 16, left: 16),
+              color: Colors.blue,
+              height: 65,
+              width: 65),
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Container(
+              margin: const EdgeInsets.only(left: 20, top: 15),
+              color: Colors.grey,
+              height: 15,
+              width: 150,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 20, top: 5),
+              color: Colors.grey,
+              height: 15,
+              width: 100,
+            ),
+          ])
+        ]),
+        SizedBox(height: 15),
+        Divider(height: 2),
+        for (var i = 0; i < 4; i++) ...[
+          Row(children: [
+            Container(
+                margin: const EdgeInsets.only(top: 16, left: 16),
+                color: Colors.blue,
+                height: 65,
+                width: 65),
+            Container(
+              margin: const EdgeInsets.only(top: 16, left: 16),
+              color: Colors.grey,
+              height: 15,
+              width: 100,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 250),
+              color: Colors.black,
+              height: 10,
+              width: 10,
+            ),
+          ])
+        ]
+      ]),
+    );
+  }
+}
